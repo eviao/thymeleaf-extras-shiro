@@ -6,19 +6,21 @@
 	<groupId>platform.thymeleaf</groupId>
 	<artifactId>thymeleaf-extras-shiro</artifactId>
 	<packaging>jar</packaging>
-	<version>2.1.2-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>thymeleaf-extras-shiro</name>
 	<url>https://github.com/eviao/thymeleaf-extras-shiro</url>
 
 	<description>XML/XHTML/HTML5 template engine for Java</description>
-
+	
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<thymeleaf.version>2.1.2.RELEASE</thymeleaf.version>
 		<shiro.version>1.2.3</shiro.version>
+		<slf4j.version>1.7.7</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+        <junit.version>4.11</junit.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
-
+	
 	<dependencies>
 
 		<dependency>
@@ -50,24 +52,25 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.6.1</version>
-			<scope>compile</scope>
+			<version>${slf4j.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 
 	</dependencies>
 
-
 	<build>
-
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -77,11 +80,9 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
 	</build>
-
+	
 	<developers>
 		<developer>
 			<name>Eviao</name>
