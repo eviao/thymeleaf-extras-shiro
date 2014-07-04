@@ -12,20 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.context.IContext;
 import org.thymeleaf.context.IProcessingContext;
 import org.thymeleaf.context.IWebContext;
-import org.thymeleaf.dialect.AbstractDialect;
 import org.thymeleaf.dialect.IExpressionEnhancingDialect;
 import org.thymeleaf.processor.IProcessor;
+import org.thymeleaf.spring4.dialect.SpringStandardDialect;
 
 import platform.thymeleaf.extras.shiro.auth.Authentication;
 import platform.thymeleaf.extras.shiro.auth.Authorization;
+import platform.thymeleaf.extras.shiro.auth.Principal;
 
-public class ShiroDialect extends AbstractDialect implements
+public class ShiroDialect extends SpringStandardDialect implements
 		IExpressionEnhancingDialect {
 
-	public static final String DEFAULT_PREFIX = "th";
+	public static final String DEFAULT_PREFIX = "sec";
 
-	public static final String AUTHENTICATION_EXPRESSION_OBJECT_NAME = "authc";
-	public static final String AUTHORIZATION_EXPRESSION_OBJECT_NAME = "authz";
+	private static final String AUTHENTICATION_EXPRESSION_OBJECT_NAME = "authc";
+	private static final String AUTHORIZATION_EXPRESSION_OBJECT_NAME = "authz";
+	private static final String PRINCIPAL_EXPRESSION_OBJECT_NAME = "principal";
 
 	public ShiroDialect() {
 		super();
@@ -71,6 +73,7 @@ public class ShiroDialect extends AbstractDialect implements
 						new Authentication());
 				objects.put(AUTHORIZATION_EXPRESSION_OBJECT_NAME,
 						new Authorization());
+				objects.put(PRINCIPAL_EXPRESSION_OBJECT_NAME, new Principal());
 			}
 
 		}

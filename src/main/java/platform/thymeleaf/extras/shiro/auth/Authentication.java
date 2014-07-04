@@ -2,22 +2,22 @@ package platform.thymeleaf.extras.shiro.auth;
 
 public final class Authentication {
 
-	public boolean guest() {
+	public boolean isGuest() {
 		return AuthUtils.getSubject() == null
 				|| AuthUtils.getSubject().getPrincipal() == null;
 	}
 	
-	public boolean user(){
+	public boolean isUser(){
 		return AuthUtils.getSubject() != null
 				&& AuthUtils.getSubject().getPrincipal() != null;
 	}
 	
-	public boolean authenticated(){
+	public boolean isAuthenticated(){
 		return AuthUtils.getSubject() != null
 				&& AuthUtils.getSubject().isAuthenticated();
 	}
 	
-	public boolean notAuthenticated(){
+	public boolean isNotAuthenticated(){
 		return AuthUtils.getSubject() == null 
 				|| !AuthUtils.getSubject().isAuthenticated();
 	}
