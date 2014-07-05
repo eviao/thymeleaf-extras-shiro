@@ -36,10 +36,6 @@ public final class Authorization {
 				&& AuthUtils.getSubject().isPermitted(perm);
     }
 	
-	public boolean lacksPermission(String perm){
-		return !isPermitted(perm);
-	}
-	
 	public boolean hasPermission(String perm){
 		return isPermitted(perm);
 	}
@@ -59,4 +55,7 @@ public final class Authorization {
         return hasAnyPermission;
 	}
 	
+	public boolean lacksPermission(String perm){
+		return !isPermitted(perm);
+	}
 }

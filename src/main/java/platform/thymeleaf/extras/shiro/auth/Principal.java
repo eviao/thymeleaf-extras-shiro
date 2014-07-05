@@ -4,7 +4,7 @@ import org.apache.shiro.subject.Subject;
 
 public final class Principal {
 	
-	public Object principal() {
+	public Object getPrincipal() {
 		
 		Subject subject = AuthUtils.getSubject();
 		
